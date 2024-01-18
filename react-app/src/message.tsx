@@ -1,7 +1,11 @@
 // PascalCasing
 function Message () {
-    //JSX to XML
-    return <h1>Hello World</h1>;
+    //JSX to Javascript XML
+    const name = "Femi"
+    if (name)
+
+       
+        return <h1>Hello {name}</h1>;
 
 }
 
