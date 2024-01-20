@@ -1,17 +1,30 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
+
 
 function ListGroup() {
   let countries = ["Nigeria", "Togo", "Benin", "Cameroun"];
-  countries = [];
-  const checklength = countries.length===0? <p>no country found</p> :null
+  
+
+  
+  const [selectedIndex, setSelectedIndex] = useState(-1);
+
 
   return (
     <>
-    
-    {checklength}
+      {countries.length === 0 && <p>no country found</p>}
       <ul className="list-group">
-        {countries.map((countries) => (
-          <li key={countries}>{countries}</li>
+        {countries.map((countries, index) => (
+          <li
+            className={
+              selectedIndex === index
+                ? "list-group-item active"
+                : "list-group-item"
+            }
+            key={countries}
+            onClick={()=>{setSelectedIndex(index)}}
+          >
+            {countries}
+          </li>
         ))}
       </ul>
     </>
